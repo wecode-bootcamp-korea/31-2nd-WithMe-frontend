@@ -9,6 +9,7 @@ import Nav from './components/Nav/Nav';
 import Productlist from './pages/ProductList/ProductList';
 import Search from './pages/Search/Search';
 import Host from './pages/Host/Host';
+import KakaoRedirectHandler from './pages/Login/KakaoRedirectHandler';
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path="/host" element={<Host />} />
         <Route path="/search" element={<Search />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/users/signin" element={<KakaoRedirectHandler />} />
       </Routes>
       <Footer />
     </BrowserRouter>
