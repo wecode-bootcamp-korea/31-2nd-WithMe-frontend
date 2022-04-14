@@ -22,7 +22,7 @@ const Router = () => {
         <Route path="/places/placeinformation/:id" element={<Product />} />
         <Route path="/host" element={<Host />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/mypage/*" element={<Mypage />} />
         <Route path="/users/signin" element={<KakaoRedirectHandler />} />
       </Routes>
       <Footer />
