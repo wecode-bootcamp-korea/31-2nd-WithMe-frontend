@@ -1,8 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
+  const navigate = useNavigate();
+
+  const goToMypage = () => {
+    navigate('/mypage');
+  };
+
+  const goToLogin = () => {
+    navigate('/login');
+  };
   return (
     <Container>
       <NavWrap>
@@ -14,7 +24,7 @@ const Nav = () => {
           <NavBox>
             <Link to="/places/placelist">놀이터 둘러보기</Link>
             <Link to="/host">놀이터 등록하기</Link>
-            <Link to="/about">놀이터란</Link>
+            <Link to="/about">놀이터란?</Link>
           </NavBox>
         </Menu>
 
@@ -23,10 +33,10 @@ const Nav = () => {
             <img src="/images/Nav/search.png" alt="search" />
           </Link>
 
-          {!localStorage.Authorization ? (
-            <Link to="/login">로그인</Link>
+          {localStorage.Authorization ? (
+            <MypageLink onClick={goToMypage}>마이페이지</MypageLink>
           ) : (
-            <Link to="/mypage">마이페이지</Link>
+            <LoginLink onClick={goToLogin}>로그인</LoginLink>
           )}
         </Mapage>
       </NavWrap>
@@ -79,6 +89,14 @@ const Mapage = styled.div`
     width: 25px;
     height: 25px;
   }
+`;
+
+const MypageLink = styled.a`
+  cursor: pointer;
+`;
+
+const LoginLink = styled.a`
+  cursor: pointer;
 `;
 
 export default Nav;
