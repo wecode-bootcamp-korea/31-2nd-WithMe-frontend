@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ProductItem = ({
   id,
@@ -11,15 +11,8 @@ const ProductItem = ({
   running_date,
   price,
 }) => {
-  const navigate = useNavigate();
-
-  const goToDetail = () => {
-    const detailUrl = `/places/detail/${id}`;
-    navigate(`${detailUrl}`);
-  };
-
   return (
-    <Container key={id} onClick={goToDetail}>
+    <StyledLink to={`/places/placeinformation/${id}`}>
       <ImgHover>
         <Img src={img_url} alt="productImg" />
       </ImgHover>
@@ -37,11 +30,11 @@ const ProductItem = ({
           </Price>
         </BottomText>
       </Text>
-    </Container>
+    </StyledLink>
   );
 };
 
-const Container = styled.li`
+const StyledLink = styled(Link)`
   display: flex;
   flex-direction: column;
   width: calc(100% / 3 - 10px);
