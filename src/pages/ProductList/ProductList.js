@@ -33,7 +33,7 @@ const Productlist = () => {
   }, [location.search]);
 
   useEffect(() => {
-    const queryString = `/places/placelist?${
+    const queryString = `?${
       filterValue.status ? `status=${filterValue.status}` : ''
     }${filterValue.participant && filterValue.status ? `&` : ''}${
       filterValue.participant ? `participant=${filterValue.participant}` : ''
