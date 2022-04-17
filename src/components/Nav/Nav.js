@@ -8,11 +8,11 @@ const Nav = () => {
       <NavWrap>
         <Menu>
           <Link to="/">
-            <img src="/images/Nav/logo.png" alt="logo" />
+            <img src="/images/Nav/logopng.png" alt="logo" />
           </Link>
 
           <NavBox>
-            <Link to="/discovery">놀이터 둘러보기</Link>
+            <Link to="/places/place">놀이터 둘러보기</Link>
             <Link to="/host">놀이터 등록하기</Link>
             <Link to="/about">놀이터란</Link>
           </NavBox>
@@ -22,7 +22,12 @@ const Nav = () => {
           <Link to="/search">
             <img src="/images/Nav/search.png" alt="search" />
           </Link>
-          <Link to="/login">로그인/회원가입</Link>
+
+          {!localStorage.Authorization ? (
+            <Link to="/login">로그인</Link>
+          ) : (
+            <Link to="/mypage">마이페이지</Link>
+          )}
         </Mapage>
       </NavWrap>
     </Container>
@@ -52,8 +57,8 @@ const Menu = styled.div`
   gap: 6rem;
 
   img {
-    width: 19px;
-    height: 30px;
+    width: 4rem;
+    height: 4rem;
   }
 `;
 
