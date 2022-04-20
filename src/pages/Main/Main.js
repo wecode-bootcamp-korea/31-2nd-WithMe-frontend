@@ -16,7 +16,7 @@ const Main = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${API.Product}main`)
+    fetch(`${API.Main}`)
       .then(res => {
         if (res.status === 200) {
           return res.json();
@@ -95,9 +95,11 @@ const Container = styled.div`
   padding-bottom: 50px;
   background-color: #fff;
 `;
+
 const StyledSwiper = styled(Swiper)`
   width: 1140px;
   height: 380px;
+  margin-bottom: 5rem;
   .swiper-slide {
     white-space: pre-wrap;
   }
@@ -121,31 +123,38 @@ const StyledSwiper = styled(Swiper)`
     }
   }
 `;
+
 const SlideTitle = styled.p`
   margin-top: 100px;
-  margin-left: 30px;
-  font-size: 25px;
+  margin-left: 5rem;
+  font-size: 2rem;
   font-weight: bold;
 `;
+
 const List = styled.div`
   margin-top: 100px;
 `;
+
 const Title = styled.div`
   padding-left: 8px;
   padding-right: 8px;
   font-size: 30px;
+  font-weight: 700;
   color: #212121;
   line-height: 1.47;
+  font-family: SourceHanSerifK, serif;
+
   img {
-    width: 23px;
+    width: 10px;
     margin-left: 20px;
+    padding-bottom: 5px;
     object-fit: cover;
   }
 `;
+
 const SubTitle = styled.div`
   ${Flex('space-between', 'center')};
   width: 100%;
-  margin-top: 20px;
   margin-bottom: 30px;
   padding-left: 8px;
   padding-right: 8px;
@@ -153,7 +162,13 @@ const SubTitle = styled.div`
   font-size: 20px;
   font-weight: bold;
   line-height: 1.45;
+
+  span {
+    font-size: 16px;
+    font-weight: 400;
+  }
 `;
+
 const Slogan = styled.div`
   width: 80%;
   height: 400px;
@@ -164,6 +179,7 @@ const Slogan = styled.div`
   background-size: 100% 400px;
   background-repeat: no-repeat;
 `;
+
 const SloganTitle = styled.p`
   padding-top: 50px;
   padding-left: 50px;

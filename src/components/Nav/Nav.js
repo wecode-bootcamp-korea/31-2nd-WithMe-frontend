@@ -12,7 +12,7 @@ const Nav = () => {
           </Link>
 
           <NavBox>
-            <Link to="/places/place">놀이터 둘러보기</Link>
+            <Link to="/places/placelist">놀이터 둘러보기</Link>
             <Link to="/host">놀이터 등록하기</Link>
             <Link to="/about">놀이터란</Link>
           </NavBox>

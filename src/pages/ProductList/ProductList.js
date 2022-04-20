@@ -153,6 +153,9 @@ const FilterReset = styled.button`
   background-position: center right 1px;
   border: none;
   color: lightgray;
+  &:hover {
+    color: orangered;
+  }
 `;
 
 const MainContainer = styled.div`
@@ -169,7 +172,8 @@ const Title = styled.div`
 
 const MainTitle = styled.span`
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 600;
+  font-family: SourceHanSerifK, serif;
 `;
 
 const Products = styled.ul`
