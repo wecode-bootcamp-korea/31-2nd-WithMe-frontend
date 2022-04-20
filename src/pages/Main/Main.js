@@ -82,7 +82,7 @@ const Main = () => {
         </List>
       ))}
       <Slogan>
-        <SloganTitle>이벤트!! 무료로 사진 찍어드립니다!!</SloganTitle>
+        <img src="/images/Main/image.png" alt="slogan" />
       </Slogan>
     </Container>
   );
@@ -132,7 +132,7 @@ const SlideTitle = styled.p`
 `;
 
 const List = styled.div`
-  margin-top: 100px;
+  margin-top: 10px;
 `;
 
 const Title = styled.div`
@@ -170,22 +170,13 @@ const SubTitle = styled.div`
 `;
 
 const Slogan = styled.div`
-  width: 80%;
-  height: 400px;
-  margin: 0 auto;
-  margin-top: 80px;
-  color: #ffffff;
-  background-image: url('/images/Main/camera.jpg');
-  background-size: 100% 400px;
-  background-repeat: no-repeat;
+  img {
+    width: 1110px;
+    height: 200px;
+    border-radius: 8px;
+  }
 `;
 
-const SloganTitle = styled.p`
-  padding-top: 50px;
-  padding-left: 50px;
-  font-size: 20px;
-  font-weight: bold;
-`;
 export default Main;
 
 const SildeContent = [

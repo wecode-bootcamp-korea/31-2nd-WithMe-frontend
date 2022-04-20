@@ -10,6 +10,7 @@ import Productlist from './pages/ProductList/ProductList';
 import Search from './pages/Search/Search';
 import Host from './pages/Host/Host';
 import KakaoRedirectHandler from './pages/Login/KakaoRedirectHandler';
+import About from './pages/About/About';
 
 const Router = () => {
   return (
@@ -24,6 +25,7 @@ const Router = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/mypage/*" element={<Mypage />} />
         <Route path="/users/signin" element={<KakaoRedirectHandler />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </BrowserRouter>
