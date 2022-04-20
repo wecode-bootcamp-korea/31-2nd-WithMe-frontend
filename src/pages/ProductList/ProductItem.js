@@ -75,8 +75,9 @@ const Text = styled.ul`
 
 const MainText = styled.dt`
   display: inline-block;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: SourceHanSerifK, serif;
   &:hover {
     border-bottom: 1px solid black;
   }
@@ -85,7 +86,7 @@ const MainText = styled.dt`
 const SubText = styled.dd`
   height: 35px;
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 14px;
 `;
 
 const BottomText = styled.div`

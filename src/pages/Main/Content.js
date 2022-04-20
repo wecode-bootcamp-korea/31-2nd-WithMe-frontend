@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Content = ({ house }) => {
-  const { img_url, title, subtitle, location, running_date } = house;
+  const { id, img_url, title, subtitle, location, running_date } = house;
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`/places/detail/${id}`);
+  };
+
   return (
-    <ContentBox>
+    <ContentBox onClick={goToDetail}>
       <Image src={img_url} alt="content" />
       <Title>{title}</Title>
       <SubTitle>{subtitle}</SubTitle>
@@ -20,43 +27,45 @@ const Content = ({ house }) => {
 
 const ContentBox = styled.div`
   width: calc(100% / 4 - 15px);
-  height: 500px;
+  height: 400px;
   margin-right: 12px;
+  cursor: pointer;
   &:nth-child(4n) {
     margin-right: 0;
   }
 `;
+
 const Image = styled.img`
-  height: 60%;
+  height: 45%;
   object-fit: cover;
 `;
+
 const Title = styled.h2`
-  height: 50px;
+  font-family: SourceHanSerifK, serif;
+  height: 30px;
   margin: 10px 0;
   color: #212121;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: SourceHanSerifK, serif;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 1.33;
   text-align: left;
 `;
+
 const SubTitle = styled.h3`
-  height: 70px;
-  margin-bottom: 20px;
+  height: 50px;
   color: #212121;
   font-size: 13px;
   font-weight: 400;
   font-style: normal;
-  font-family: Gotham, 'Noto Sans Kr', 'Roboto', sans-serif;
   line-height: 1.58;
   text-align: left;
 `;
+
 const Rest = styled.p`
-  padding-top: 5px;
+  padding-top: 15px;
   border-top: 1px solid #ddd;
   color: #757575;
   font-size: 12px;
-  font-family: Gotham, 'Noto Sans KR';
   text-align: left;
 `;
 export default Content;
