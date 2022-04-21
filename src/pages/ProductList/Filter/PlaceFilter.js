@@ -39,7 +39,7 @@ export default function FilterModal({
             }}
             value="newplace"
           >
-            새로운 나랑 놀래 ?
+            새로운 놀이터 !
           </MenuItem>
           <MenuItem
             onClick={() => {
@@ -48,7 +48,7 @@ export default function FilterModal({
             }}
             value="finishedplace"
           >
-            지난 나랑 놀래 ?
+            지난 놀이터 !
           </MenuItem>
         </Select>
       </FormControl>

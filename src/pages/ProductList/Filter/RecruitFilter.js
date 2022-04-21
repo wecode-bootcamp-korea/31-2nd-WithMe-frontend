@@ -46,7 +46,7 @@ export default function RecruitFilter({
             }}
             value="lessvisitor"
           >
-            열렸다 ! 나랑 놀 곳
+            놀이터 열렸다 !
           </MenuItem>
           <MenuItem
             onClick={() => {
@@ -54,7 +54,7 @@ export default function RecruitFilter({
             }}
             value="fullvisitor"
           >
-            다찼다 ! 나랑 놀 곳
+            놀이터 다찼다 !
           </MenuItem>
         </Select>
       </FormControl>

@@ -72,7 +72,7 @@ const Main = () => {
             {idx === 0 && (
               <span
                 style={{ cursor: 'pointer' }}
-                onClick={() => navigate('/productlist')}
+                onClick={() => navigate('/places/placelist')}
               >
                 전체보기
               </span>

@@ -34,33 +34,33 @@ export default function SortFilter({
         >
           <MenuItem
             onClick={() => {
-              handleFilterValue('deadline', 'sort');
+              handleFilterValue('running_date', 'sort');
             }}
-            value="deadline"
+            value="running_date"
           >
             마감 임박순
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleFilterValue('permitted', 'sort');
+              handleFilterValue('-created_at', 'sort');
             }}
-            value="permitted"
+            value="-created_at"
           >
             최신 등록순
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleFilterValue('low_price', 'sort');
+              handleFilterValue('price', 'sort');
             }}
-            value="lowprice"
+            value="price"
           >
             낮은 금액순
           </MenuItem>
           <MenuItem
             onClick={() => {
-              handleFilterValue('high_price', 'sort');
+              handleFilterValue('-price', 'sort');
             }}
-            value="highprice"
+            value="-price"
           >
             높은 금액순
           </MenuItem>

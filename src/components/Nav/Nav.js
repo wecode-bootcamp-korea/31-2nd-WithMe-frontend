@@ -28,7 +28,7 @@ const Nav = () => {
             ) : (
               <Link to="/host">놀이터 등록하기</Link>
             )}
-            <Link to="/about">놀이터란</Link>
+            <Link to="/about">놀이터란 ?</Link>
           </NavBox>
         </Menu>
 
