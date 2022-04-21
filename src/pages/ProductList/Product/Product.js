@@ -17,7 +17,7 @@ const Product = () => {
   const container = useRef();
 
   useEffect(() => {
-    fetch(`${API.Product}${params.id}`, {
+    fetch(`${API.Product}/${params.id}`, {
       headers: {
         Authorization: localStorage.getItem('Authorization'),
       },
@@ -29,7 +29,7 @@ const Product = () => {
   }, [params.id]);
 
   useEffect(() => {
-    fetch(`${API.Placehost}${params.id}/hostinformation`, {
+    fetch(`${API.Placehost}/${params.id}/hostinformation`, {
       headers: {
         Authorization: localStorage.getItem('Authorization'),
       },
@@ -40,7 +40,7 @@ const Product = () => {
       });
   }, [params.id]);
   useEffect(() => {
-    fetch(`${API.Placereview}${params.id}/review`, {
+    fetch(`${API.Placereview}/${params.id}/review`, {
       headers: {
         Authorization: localStorage.getItem('Authorization'),
       },
@@ -89,8 +89,8 @@ const Product = () => {
       center: new kakao.maps.LatLng(placeItem.latitude, placeItem.longitude),
       radius: 110,
       strokeOpacity: 0,
-      fillColor: '#CFE7FF',
-      fillOpacity: 0.8,
+      fillColor: '#d2373b',
+      fillOpacity: 0.3,
     });
 
     circle.setMap(map);
@@ -144,7 +144,7 @@ const Product = () => {
         <Map>
           <MapInfo>오시는 길 </MapInfo>
           <MapText>
-            <MapTitle>서울시 강남구 테헤란로</MapTitle>
+            <MapTitle>{placeItem.location}</MapTitle>
             <MapSubTitle>
               자세한 위치는 예약 확정 시 개별 안내 드립니다.
             </MapSubTitle>
