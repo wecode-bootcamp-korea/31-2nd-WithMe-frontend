@@ -1,4 +1,4 @@
-const BASE_URL = 'http://3.37.88.79:8000';
+const BASE_URL = 'http://13.209.4.187:8000';
 
 const API = {
   Login: `${BASE_URL}/users/signin`,
@@ -15,7 +15,8 @@ const API = {
   Main: `${BASE_URL}/places/main`,
   Hostuser: `${BASE_URL}/users/host`,
   Hostcreate: `${BASE_URL}/users/placeregist`,
-  Hostmain: `${BASE_URL}/users/hostlist`,
+  Hostmain: `${BASE_URL}/places/hostregstlist`,
   Userinfo: `${BASE_URL}/users/userinfo`,
+  Hostinfo: `${BASE_URL}/places/hostinformation`,
 };
 export default API;

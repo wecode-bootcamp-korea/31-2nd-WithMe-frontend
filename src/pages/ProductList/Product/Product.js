@@ -12,7 +12,7 @@ const Product = () => {
   const [placeItem, setPlaceItem] = useState({});
   const [placeHost, setPlaceHost] = useState([]);
   const [placeReview, setPlaceReview] = useState([]);
-
+  const [user, setUser] = useState({});
   const params = useParams();
   const container = useRef();
 
@@ -39,6 +39,7 @@ const Product = () => {
         setPlaceHost(data.result);
       });
   }, [params.id]);
+
   useEffect(() => {
     fetch(`${API.Placereview}/${params.id}/review`, {
       headers: {
@@ -51,28 +52,41 @@ const Product = () => {
       });
   }, [params.id]);
 
-  const reservation = () => {
-    fetch(`${API.Placereservation}`, {
+  useEffect(() => {
+    fetch(`${API.Userinfo}`, {
       headers: {
         Authorization: localStorage.getItem('Authorization'),
       },
-      method: 'POST',
-      body: JSON.stringify({
-        place: placeItem.id,
-      }),
     })
-      .then(res => {
-        if (res.status === 200) {
-          return res.json();
-        } else if (res.status === 401) {
-          return alert('이미 예약되었습니다.');
-        } else if (res.status === 400) {
-          return alert('본인 놀이터는 예약할 수 없습니다.');
-        } else {
-          return alert('잘못된 접근입니다.');
-        }
+      .then(res => res.json())
+      .then(data => setUser(data.user_info));
+  }, []);
+
+  const reservation = () => {
+    if (placeHost.host_nickname !== user.nickname) {
+      fetch(`${API.Placereservation}`, {
+        headers: {
+          Authorization: localStorage.getItem('Authorization'),
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          place_id: placeItem.id,
+        }),
       })
-      .then(data => data);
+        .then(res => {
+          if (res.status === 200 || res.status === 201) {
+            alert('예약되었습니다.');
+            return res.json();
+          } else if (res.status === 400) {
+            alert('포인트가 부족합니다');
+          } else if (res.status === 401) {
+            alert('이미 예약한 방입니다.');
+          } else {
+            alert('잘못된 접근입니다.');
+          }
+        })
+        .then(data => data);
+    } else alert('본인 놀이터는 예약할 수 없습니다.');
   };
 
   useEffect(() => {
@@ -88,6 +102,7 @@ const Product = () => {
     let circle = new kakao.maps.Circle({
       center: new kakao.maps.LatLng(placeItem.latitude, placeItem.longitude),
       radius: 110,
+      strokeWeight: 5,
       strokeOpacity: 0,
       fillColor: '#d2373b',
       fillOpacity: 0.3,
@@ -111,12 +126,20 @@ const Product = () => {
               />
               <LocationValue>{placeItem.location}</LocationValue>
             </Location>
-            <Payment onClick={reservation}>예약하기</Payment>
+            {placeItem.running_date === 'is_closed' ? (
+              ''
+            ) : (
+              <Payment onClick={reservation}>예약하기</Payment>
+            )}
           </InfoValue>
           <AdditionalInfo>
-            <RunningDate>{placeItem.running_date}</RunningDate>
-            <RunningTime>{placeItem.running_time} 시간 </RunningTime>
-            <MaxVisitor>최대인원 {placeItem.max_visitor} 명</MaxVisitor>
+            <RunningDate>
+              {placeItem.running_date === 'is_closed'
+                ? '모집마감'
+                : placeItem.running_date}
+            </RunningDate>
+            <RunningTime>진행시간 {placeItem.running_time}시간 </RunningTime>
+            <MaxVisitor>최대인원 {placeItem.max_visitor}명</MaxVisitor>
             <Price>
               {parseInt(placeItem.price)
                 .toString()
@@ -203,12 +226,14 @@ const Container = styled.div`
 
 const Main = styled.div`
   width: 736px;
+  margin-top: 3rem;
 `;
 
 const Info = styled.div``;
 
 const InfoImg = styled.img`
   height: 368px;
+  border-radius: 8px;
 `;
 
 const InfoValue = styled.div`
@@ -226,7 +251,7 @@ const Title = styled.dt`
 
 const SubTitle = styled.dd`
   margin-top: 15px;
-  font-size: 22.5px;
+  font-size: 20px;
 `;
 
 const Location = styled.div`
@@ -240,7 +265,7 @@ const LocationIcon = styled.img`
 `;
 
 const LocationValue = styled.div`
-  font-size: 21px;
+  font-size: 19px;
 `;
 
 const Payment = styled.button`
@@ -255,7 +280,7 @@ const Payment = styled.button`
 const AdditionalInfo = styled.div`
   ${Flex('center')};
   margin-top: 60px;
-  font-size: 25px;
+  font-size: 20px;
 `;
 
 const RunningDate = styled.div``;
@@ -303,6 +328,7 @@ const HostText = styled.dd`
 
 const HostIntro = styled(HostText)`
   margin-top: 20px;
+  padding-left: 1rem;
 `;
 
 const Preparation = styled.div`

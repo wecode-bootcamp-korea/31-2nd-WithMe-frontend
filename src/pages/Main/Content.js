@@ -7,7 +7,7 @@ const Content = ({ house }) => {
   const navigate = useNavigate();
 
   const goToDetail = () => {
-    navigate(`/places/detail/${id}`);
+    navigate(`/places/placeinformation/${id}`);
   };
 
   return (

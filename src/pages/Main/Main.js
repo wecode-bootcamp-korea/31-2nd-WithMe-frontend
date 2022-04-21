@@ -220,6 +220,6 @@ const SildeContent = [
 
 const categories = [
   { id: 1, title: '놀거리 추천', subTitle: '다같이 즐길 수 있는 놀거리' },
-  { id: 2, title: '마감임박', subTitle: '곧 마감인 놀거리!!' },
-  { id: 3, title: '최근 등록된 놀거리', subTitle: '따끈따끈한 새로운 놀거리' },
+  { id: 2, title: '최근 등록된 놀거리', subTitle: '따끈따끈한 새로운 놀거리' },
+  { id: 3, title: '마감 임박', subTitle: '곧 마감인 놀거리!!' },
 ];

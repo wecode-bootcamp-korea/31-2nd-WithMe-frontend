@@ -32,7 +32,7 @@ const Item = ({
 
   return (
     <ItemWrap key={reservation}>
-      <StyledLink to={`/places/detail/${place_id}`}>
+      <StyledLink to={`/places/placeinformation/${place_id}`}>
         <img src={image} alt="img" />
         <Info>
           <h2>{title}</h2>

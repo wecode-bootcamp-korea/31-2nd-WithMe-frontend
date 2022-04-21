@@ -133,7 +133,7 @@ const HostCreate = ({ setSelected }) => {
     fetch(`${API.Hostcreate}`, {
       method: 'post',
       headers: {
-        Authorization: localStorage.getItem('Authorzation'),
+        Authorization: localStorage.getItem('Authorization'),
       },
       body: formData,
     }).then(res => {
@@ -180,7 +180,7 @@ const HostCreate = ({ setSelected }) => {
               <Img
                 alt="uploadImg"
                 src={imgFileUrl}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                // style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             ) : (
               <span>이미지를 등록해주세요</span>
@@ -222,7 +222,8 @@ const HostCreate = ({ setSelected }) => {
           value={price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
           onChange={handlePrice}
         />
-        원<SubTitle>진행날짜</SubTitle>
+        <span>원</span>
+        <SubTitle>진행날짜</SubTitle>
         <MyDatePicker
           locale={ko}
           selected={running_date}
@@ -362,17 +363,20 @@ const ImgWrap = styled.div`
   font-weight: bold;
 `;
 const Img = styled.img`
-  width: '100%';
-  height: '100%';
-  object-fit: 'cover';
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 const ImgBtn = styled.button`
-  position: absolute;
+  display: block;
+  margin: 1.5rem auto;
   bottom: 30px;
-  width: 100%;
+  width: 80%;
   height: 40px;
   color: white;
   background-color: #212121;
+  border: none;
+  border-radius: 4px;
 `;
 
 const LocationBtn = styled.button`
@@ -381,6 +385,8 @@ const LocationBtn = styled.button`
   margin-left: 10px;
   background-color: #212121;
   color: #ffffff;
+  border: none;
+  border-radius: 4px;
 `;
 
 const MyDatePicker = styled(DatePicker)`

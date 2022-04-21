@@ -58,8 +58,8 @@ const Review = () => {
             ) : (
               <p>작성한 후기가 없으시네요.</p>
             )}
-            <p>남의집에 놀러 다녀오신 후, 후기를 남겨보세요.</p>
-            <StyledLink to="/places">남의집 둘러보기</StyledLink>
+            <p>놀이터에 놀러 다녀오신 후, 후기를 남겨보세요.</p>
+            <StyledLink to="/places/placelist">놀이터 둘러보기</StyledLink>
           </ReviewNoneBox>
         ) : (
           <ReviewBox>
