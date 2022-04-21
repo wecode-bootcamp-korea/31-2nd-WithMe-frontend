@@ -6,6 +6,13 @@ import { Flex } from '../../styles/Mixin';
 
 const HostUser = ({ setSelected }) => {
   const navigate = useNavigate();
+  const [host, setHost] = useState({
+    host_nickname: '',
+    host_profile_image: '',
+    host_introduction: '',
+    bank: '',
+    account: '',
+  });
   const [user, setUser] = useState({ nickname: '', profile_image: '' });
   const [text, setText] = useState('');
   const [bank, setBank] = useState('산와머니');
@@ -18,12 +25,26 @@ const HostUser = ({ setSelected }) => {
   useEffect(() => {
     fetch(`${API.Userinfo}`, {
       headers: {
-        Authorization: localStorage.getItem('Authorzation'),
+        Authorization: localStorage.getItem('Authorization'),
       },
     })
       .then(res => res.json())
       .then(data => {
         setUser(data.user_info);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch(`${API.Hostinfo}`, {
+      headers: {
+        Authorization: localStorage.getItem('Authorization'),
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setBank(data.result[0].bank);
+        setText(data.result[0].host_introduction);
+        setAccount(data.result[0].account);
       });
   }, []);
 
@@ -83,7 +104,11 @@ const HostUser = ({ setSelected }) => {
         <Title>호스트 계좌 정보</Title>
         <BankContent>
           <SubTitle>나의 정산 은행</SubTitle>
-          <Select name="banks" onChange={e => setBank(e.target.value)}>
+          <Select
+            name="banks"
+            onChange={e => setBank(e.target.value)}
+            value={bank}
+          >
             <option value="산와머니">산와머니</option>
             <option value="정현은행">정현은행</option>
             <option value="경서은행">경서은행</option>
@@ -161,7 +186,7 @@ const Introduction = styled.div`
   margin-top: 40px;
 `;
 const TextArea = styled.textarea`
-  width: 60%;
+  width: 80%;
   min-height: 181px;
   padding: 14px 16px;
   font-size: 15px;
@@ -169,6 +194,7 @@ const TextArea = styled.textarea`
   line-height: 25px;
   border: 1px solid #ddd;
   border-radius: 3px;
+  resize: none;
   &:focus {
     outline: none;
   }
@@ -202,7 +228,6 @@ const Account = styled.input`
 `;
 const ButtonWrap = styled.div`
   ${Flex('flex-end')}
-  width: 80%;
   padding-top: 40px;
   padding-bottom: 40px;
 `;

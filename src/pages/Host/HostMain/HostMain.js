@@ -23,7 +23,7 @@ const HostMain = ({ setSelected }) => {
         const places = data.results;
         setAllHouse(places);
         const progessHouses = places.filter(
-          place => place.running_date === 'is_closed'
+          place => place.running_date !== 'is_closed'
         );
         setProgress(progessHouses);
       });
@@ -62,7 +62,7 @@ const HostMain = ({ setSelected }) => {
         </House>
         <House>
           <HouseTop>
-            <h2>진행중인 남의집</h2>
+            <h2>진행중인 놀이터</h2>
           </HouseTop>
           {progress.length !== 0 ? (
             progress.map(house => (
@@ -172,6 +172,7 @@ const Article = styled.div`
 `;
 const Img = styled.div`
   background-size: 100%, 100%;
+  /* background-repeat: no-repeat; */
   width: 300px;
   height: 150px;
   margin-top: 40px;
@@ -187,12 +188,10 @@ export default HostMain;
 const images = [
   {
     id: 1,
-    img_url: '/images/Host/camera.jpg',
-    comment: '사진 무료 촬영 이벤트!!!',
+    img_url: '/images/Main/image.png',
   },
   {
     id: 2,
-    img_url: '/images/Host/camera.jpg',
-    comment: '사진 무료 촬영 이벤트!!!',
+    img_url: '/images/Main/hostss.png',
   },
 ];

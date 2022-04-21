@@ -37,8 +37,8 @@ const History = ({ isClicked, setIsClicked }) => {
       {historyData && historyData.length === 0 ? (
         <HistoryNoneBox>
           <p>아직 신청한 남의집이 없으시네요!</p>
-          <p>지금 바로 남의집에 놀러가보세요.</p>
-          <StyledLink to="/productlist">남의집 둘러보기</StyledLink>
+          <p>지금 바로 놀이터에 놀러가보세요.</p>
+          <StyledLink to="/places/placelist">놀이터 둘러보기</StyledLink>
         </HistoryNoneBox>
       ) : (
         <HistoryBox>
