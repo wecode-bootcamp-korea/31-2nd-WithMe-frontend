@@ -5,7 +5,7 @@ import API from '../../../../../config';
 import { Link } from 'react-router-dom';
 
 const ReviewAbleItem = ({
-  id,
+  place_id,
   title,
   sub_title,
   image,
@@ -47,7 +47,7 @@ const ReviewAbleItem = ({
     <ItemWrap>
       <Img src={image} alt="게시물 사진" />
       <Info>
-        <StyledLink to={`/places/detail/${id}`}>
+        <StyledLink to={`/places/placeinformation/${place_id}`}>
           <h2>{title}</h2>
         </StyledLink>
         <h3> {sub_title} </h3>

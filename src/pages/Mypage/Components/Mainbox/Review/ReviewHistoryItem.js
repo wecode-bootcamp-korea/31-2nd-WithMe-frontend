@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ReviewHistoryItem = ({
+  place_id,
   title,
   sub_title,
   image,
@@ -12,7 +14,9 @@ const ReviewHistoryItem = ({
     <ItemWrap>
       <Img src={image} alt="게시물 사진" />
       <Info>
-        <h2>{title}</h2>
+        <StyledLink to={`/places/placeinformation/${place_id}`}>
+          <h2>{title}</h2>
+        </StyledLink>
         <h3> {sub_title}</h3>
         <span>{running_date} </span>
         <MakeReview>
@@ -58,6 +62,8 @@ const Info = styled.div`
     line-height: 1.5;
   }
 `;
+
+const StyledLink = styled(Link)``;
 
 const MakeReview = styled.div`
   display: flex;
