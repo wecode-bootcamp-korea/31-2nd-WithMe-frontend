@@ -13,6 +13,7 @@
     "cross-env": "^7.0.3",
     "date-fns": "^2.28.0",
     "dotenv": "^16.0.0",
+    "env-cmd": "^10.1.0",
     "moment": "^2.29.3",
     "react": "^18.0.0",
     "react-datepicker": "^4.7.0",
@@ -29,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "env-cmd -f react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
