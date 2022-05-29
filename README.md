@@ -179,7 +179,7 @@
   <tr>
     <td align="center">
         <img
-          src="https://user-images.githubusercontent.com/92558372/170858084-465f19b8-db57-4239-a926-35690a920213.gif"
+          src="https://user-images.githubusercontent.com/92558372/170858677-fea8d007-b3cc-4ddf-8ed7-f421b71335e6.gif"
           width="600px"
         />
         <br/>
